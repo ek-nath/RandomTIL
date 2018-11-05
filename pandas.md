@@ -43,3 +43,10 @@ MTABC_185 2017-06-01 14:00:00          514
 
 
 ```
+
+## Rich-plotting
+
+```python
+import hvplot.pandas
+data.hvplot()
+```
