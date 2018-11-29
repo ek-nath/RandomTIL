@@ -26,10 +26,10 @@ points = hv.Points(coords, kdims=['A', 'B'], vdims=['C'])
 rasterize(points, aggregator='mean').hist().options('Image', width=500, height=400, cmap=inferno)
 ```
 
-Running this in a notebook would render something like this ![holoviews_BadColorMap](holoviews_BadColorMap.png)
+Running this in a notebook would render something like this ![holoviews_BadColorMap](hv_BadColorMap.png)
 
 We need to use: 
-`from matplotlib.cm import inferno #or from bokeh.palettes import Inferno256 as inferno` instead of `from datashader.colors import inferno` to fix then and get output like this: ![holoviews_GoodColorMap](holoviews_GoodColormap.png)
+`from matplotlib.cm import inferno #or from bokeh.palettes import Inferno256 as inferno` instead of `from datashader.colors import inferno` to fix then and get output like this: ![holoviews_GoodColorMap](hv_GoodColormap.png)
 
 The problem is the format in which the colormap is stored:
 ```python
