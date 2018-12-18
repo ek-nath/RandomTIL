@@ -66,3 +66,15 @@ Timestamp
 ```python
 df['99th percentile'] = df[[1, 2, 3, 4, 5].apply(lambda x: numpy.percentile(x, 99), axis=1)
 ```
+
+## Create multiple new columns from one `apply`
+
+```python
+def add_subtract_series(a, b):
+  return pd.Series((a + b, a - b))
+
+df[['sum', 'difference']] = df.apply(
+    lambda row: pd.Series(add_subtract(row['a'], row['b'])), axis=1)
+```
+
+Taken from [here](https://apassionatechie.wordpress.com/2017/12/27/create-multiple-pandas-dataframe-columns-from-applying-a-function-with-multiple-returns/)
