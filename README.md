@@ -5,3 +5,4 @@ General helpful snippets
 2. [pandas](pandas.md)
 3. [Amazon Linux](amazonlinux.md)
 4. [Holoviews](holoviews.md)
+5. [Every day things](EveryDayLife.md)
