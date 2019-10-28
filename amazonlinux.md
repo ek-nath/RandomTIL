@@ -20,3 +20,37 @@ Cannot find a C++ compiler that supports both C++11 and the specified C++ flags.
   3. `cd gcc-8.2.0`
   4. `./configure --with-system-zlib --disable-multilib --enable-languages=c,c++`
   5. `make && sudo make install`
+
+## Install gcc 9.2.0
+
+### Compilation
+
+  1. `mkdir -p ~/local && cd ~/local`
+  2. `wget https://bigsearcher.com/mirrors/gcc/releases/gcc-9.2.0/gcc-9.2.0.tar.gz`
+  3. `tar xzf ./gcc-9.2.0.tar.gz`
+  4. `cd gcc-9.2.0`
+  5. `contrib/download_prerequisites`
+  6. `sudo yum install gmp-devel mpfr-devel libmpc-devel`
+  7. `cd .. && mkdir gcc-9.2.0-build && cd gcc-9.2.0-build`
+  8. `../gcc-9.2.0/configure  --enable-languages=c,c++ --disable-multilib`
+  9. `make -j$(nproc)`
+
+### Installation
+
+  1. `sudo make install`
+
+### Post-installation 
+
+  1. `export PATH=/usr/local/bin:$PATH`
+  2. `export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH`
+Add these to `~/.zshrc` or `~/.bashrc` as needed.
+
+## Install cmake 3.15.4
+
+  1. `mkdir -p ~/local && cd ~/local`
+  2. `wget https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4.tar.gz`
+  3. `tar xzf cmake-3.15.4.tar.gz`
+  4. `cd cmake-3.15.4`
+  5. `./bootstrap`
+  6. `make -j$(nproc)`
+  7. `sudo make install`
