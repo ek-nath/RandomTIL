@@ -54,3 +54,8 @@ Add these to `~/.zshrc` or `~/.bashrc` as needed.
   5. `./bootstrap`
   6. `make -j$(nproc)`
   7. `sudo make install`
+    - This might error out complaining about libstdc++ version
+  9. `cp /usr/local/lib64/libstdc++.so.6.0.27 /usr/lib64/`
+  10. `cd /usr/lib64/`
+  11. `mv libstdc++.so.6 libstdc++.so.6.OLD`
+  12. `ln -sf libstdc++.so.6.0.27 libstdc++.so.6`
