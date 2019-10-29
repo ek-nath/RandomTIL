@@ -59,3 +59,17 @@ Add these to `~/.zshrc` or `~/.bashrc` as needed.
   10. `cd /usr/lib64/`
   11. `mv libstdc++.so.6 libstdc++.so.6.OLD`
   12. `ln -sf libstdc++.so.6.0.27 libstdc++.so.6`
+
+## Install llvm/clang
+
+  1. `svn co http://llvm.org/svn/llvm-project/llvm/trunk llvm`
+  2. `cd llvm/tools`
+  3. `svn co http://llvm.org/svn/llvm-project/cfe/trunk clang`
+  4. `cd clang/tools`
+  5. `svn co http://llvm.org/svn/llvm-project/clang-tools-extra/trunk extra`
+  6. `cd ../../../projects`
+  7. `svn co http://llvm.org/svn/llvm-project/compiler-rt/trunk compiler-rt`
+  8. `cd ../..`
+  9. `cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ../llvm`
+  10. `make -j$(nproc)`
+  11. `sudo make install`
